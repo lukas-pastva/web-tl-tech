@@ -12,17 +12,35 @@
   <!-- Bootstrap 5 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
   <!-- Lightbox2 (popup galéria) -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css" rel="stylesheet">
 
   <style>
     body            { font-family: 'Roboto', Arial, sans-serif; }
+
+    /* =====  MENU  ===== */
     .navbar-brand   { font-weight: 700; }
+
+    /* =====  SECTIONS  ===== */
     section         { padding: 60px 0; }
 
-    /* Galéria */
+    /* =====  GALÉRIA  ===== */
     #galeria img            { border-radius: .5rem; transition: transform .2s; }
     #galeria img:hover      { transform: scale(1.05); }
+
+    /* =====  PREČO PRÁVE JA?  ===== */
+    .why-me                { padding-left: 3rem !important; } /* viac odsadenia zľava */
+
+    /* =====  LIGHTNING CANVAS  ===== */
+    header                 { position: relative; overflow: hidden; }
+    #lightningCanvas       {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      pointer-events: none; /* nezavadzia klikom */
+    }
   </style>
 </head>
 
@@ -51,6 +69,7 @@
 
   <!-- ************  DOMOV  ************ -->
   <header id="domov" class="bg-primary text-white text-center">
+    <canvas id="lightningCanvas"></canvas> <!-- animovaný blesk -->
     <div class="container d-flex align-items-center flex-column" style="padding:120px 0">
       <h1 class="mb-3">Tomáš Lysičan</h1>
       <p class="lead">Spoľahlivý elektrikár pre váš domov i firmu</p>
@@ -73,11 +92,11 @@
     <section>
       <h2 class="text-center mb-4">Služby</h2>
       <ul class="list-group list-group-flush">
-        <li class="list-group-item">Kompletné elektroinštalácie v rodinných domoch a bytoch</li>
-        <li class="list-group-item">Montáž a výmena ističov, poistiek či rozvodných skríň</li>
-        <li class="list-group-item">Inštalácia a servis svietidiel, zásuviek a vypínačov</li>
-        <li class="list-group-item">Revízie a opravy elektrických rozvodov</li>
-        <li class="list-group-item">Konzultácie pri návrhu nových elektroinštalácií</li>
+        <li class="list-group-item"><i class="bi bi-lightning-charge-fill me-2 text-warning"></i>Kompletné elektroinštalácie v rodinných domoch a bytoch</li>
+        <li class="list-group-item"><i class="bi bi-tools me-2 text-warning"></i>Montáž a výmena ističov, poistiek či rozvodných skríň</li>
+        <li class="list-group-item"><i class="bi bi-lightbulb-fill me-2 text-warning"></i>Inštalácia a servis svietidiel, zásuviek a vypínačov</li>
+        <li class="list-group-item"><i class="bi bi-shield-check me-2 text-warning"></i>Revízie a opravy elektrických rozvodov</li>
+        <li class="list-group-item"><i class="bi bi-chat-dots-fill me-2 text-warning"></i>Konzultácie pri návrhu nových elektroinštalácií</li>
       </ul>
     </section>
 
@@ -92,7 +111,7 @@
     </section>
 
     <!-- Prečo práve ja -->
-    <section class="bg-warning bg-opacity-25 border-start border-danger border-5 rounded">
+    <section class="bg-warning bg-opacity-25 border-start border-danger border-5 rounded why-me">
       <h2 class="mb-3">Prečo práve ja?</h2>
       <p>
         Viem, že elektroinštalácie môžu byť pre mnohých strašiakom. Preto kladiem dôraz na
@@ -100,6 +119,27 @@
         objednávok. Zároveň poskytujem férové ceny a vždy sa snažím nájsť riešenie, ktoré vám
         ušetrí čas aj peniaze.
       </p>
+    </section>
+
+    <!-- ************  ŠTATISTIKY  (na zaplnenie stránky)  ************ -->
+    <section class="bg-light text-center">
+      <div class="row g-4">
+        <div class="col-12 col-md-4">
+          <i class="bi bi-calendar2-week display-5 text-primary"></i>
+          <h3 class="mt-2">15+</h3>
+          <p>Rokov praxe</p>
+        </div>
+        <div class="col-12 col-md-4">
+          <i class="bi bi-people-fill display-5 text-primary"></i>
+          <h3 class="mt-2">350+</h3>
+          <p>Spokojných zákazníkov</p>
+        </div>
+        <div class="col-12 col-md-4">
+          <i class="bi bi-clock-history display-5 text-primary"></i>
+          <h3 class="mt-2">24/7</h3>
+          <p>Havarijná služba</p>
+        </div>
+      </div>
     </section>
 
     <!-- ************  GALÉRIA  ************ -->
@@ -154,6 +194,60 @@
 
   <!-- Lightbox2 JS -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
+
+  <!-- =====  SUBTLE LIGHTNING ANIMATION  ===== -->
+  <script>
+    (function () {
+      const canvas = document.getElementById('lightningCanvas');
+      const ctx    = canvas.getContext('2d');
+      let w, h;
+
+      function sizeCanvas () {
+        w = canvas.width  = canvas.offsetWidth;
+        h = canvas.height = canvas.offsetHeight;
+        ctx.strokeStyle   = 'rgba(255,255,255,0.6)';
+        ctx.lineWidth     = 2;
+        ctx.shadowBlur    = 8;
+        ctx.shadowColor   = 'rgba(255,255,255,0.8)';
+      }
+      sizeCanvas();
+      window.addEventListener('resize', sizeCanvas);
+
+      function rand (min, max) { return Math.random() * (max - min) + min; }
+
+      function drawBolt () {
+        const startX = rand(w * 0.2, w * 0.8);
+        let   x      = startX;
+        let   y      = 0;
+        ctx.beginPath();
+        ctx.moveTo(x, y);
+
+        while (y < h) {
+          x += rand(-20, 20);
+          y += rand(20, 40);
+          ctx.lineTo(x, y);
+        }
+        ctx.stroke();
+      }
+
+      // fade‑out effect so previous bolts slowly disappear
+      function fadeCanvas () {
+        ctx.fillStyle = 'rgba(0,0,0,0.03)'; // tiny opacity for smooth fade
+        ctx.fillRect(0, 0, w, h);
+      }
+
+      let lastTime = 0;
+      function animate (time) {
+        if (time - lastTime > 1500 + rand(-600, 600)) { // new bolt every ~1.5 s ±
+          drawBolt();
+          lastTime = time;
+        }
+        fadeCanvas();
+        requestAnimationFrame(animate);
+      }
+      animate(0);
+    })();
+  </script>
 
 </body>
 </html>
