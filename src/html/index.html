@@ -1,177 +1,159 @@
 <!DOCTYPE html>
 <html lang="sk">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tomáš Lysičan - Spoľahlivý Elektrikár</title>
-    <style>
-        /* Reset some default styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tomáš Lysičan – Spoľahlivý Elektrikár</title>
 
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            background-color: #f4f4f4;
-            color: #333;
-            padding: 20px;
-        }
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
 
-        header {
-            text-align: center;
-            padding: 50px 0;
-            background-color: #35424a;
-            color: #ffffff;
-        }
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
-        header h1 {
-            font-size: 3em;
-            margin-bottom: 10px;
-        }
+  <!-- Lightbox2 (popup galéria) -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css" rel="stylesheet">
 
-        header p {
-            font-size: 1.2em;
-            color: #cccccc;
-        }
+  <style>
+    body            { font-family: 'Roboto', Arial, sans-serif; }
+    .navbar-brand   { font-weight: 700; }
+    section         { padding: 60px 0; }
 
-        .container {
-            max-width: 1000px;
-            margin: auto;
-            overflow: hidden;
-            padding: 0 20px;
-        }
-
-        section {
-            margin: 20px 0;
-            background: #ffffff;
-            padding: 20px;
-            border-radius: 5px;
-        }
-
-        h2 {
-            margin-bottom: 15px;
-            color: #35424a;
-        }
-
-        ul {
-            list-style: none;
-        }
-
-        li {
-            margin-bottom: 10px;
-            position: relative;
-            padding-left: 25px;
-        }
-
-        li::before {
-            content: "👉";
-            position: absolute;
-            left: 0;
-            color: #35424a;
-        }
-
-        a.button {
-            display: inline-block;
-            padding: 10px 20px;
-            background: #35424a;
-            color: #ffffff;
-            text-decoration: none;
-            border-radius: 5px;
-            margin-top: 10px;
-        }
-
-        a.button:hover {
-            background: #1f2a30;
-        }
-
-        /* Highlight/Notice Section */
-        .highlight {
-            background-color: #ffeb3b;
-            padding: 20px;
-            border-left: 5px solid #f44336;
-            margin-top: 20px;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            header h1 {
-                font-size: 2.5em;
-            }
-
-            header p {
-                font-size: 1em;
-            }
-        }
-
-        @media (max-width: 480px) {
-            header h1 {
-                font-size: 2em;
-            }
-
-            .container {
-                padding: 0 10px;
-            }
-        }
-    </style>
+    /* Galéria */
+    #galeria img            { border-radius: .5rem; transition: transform .2s; }
+    #galeria img:hover      { transform: scale(1.05); }
+  </style>
 </head>
-<body>
 
-    <header>
-        <h1>Tomáš Lysičan</h1>
-        <p>Spoľahlivý elektrikár pre váš domov i firmu</p>
-    </header>
+<body data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="70">
 
+  <!-- ************  MENU  (Domov | Galéria | Kontakt)  ************ -->
+  <nav id="mainNav" class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
+      <a class="navbar-brand" href="#domov">TL‑Tech</a>
 
-        <!-- O mne -->
-        <section>
-            <h2>O mne</h2>
-            <p>Ahoj, volám sa Tomáš Lysičan a som elektrikár s dlhoročnou praxou v oblasti elektroinštalácií. Mám oficiálne certifikáty a osvedčenia potrebné pre bezpečné a kvalitné elektro práce.</p>
-        </section>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+              data-bs-target="#navbarResponsive" aria-controls="navbarResponsive"
+              aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-        <!-- Služby -->
-        <section>
-            <h2>Služby</h2>
-            <ul>
-                <li>Kompletné elektroinštalácie v rodinných domoch a bytoch</li>
-                <li>Montáž a výmena ističov, poistiek či rozvodných skríň</li>
-                <li>Inštalácia a servis svietidiel, zásuviek a vypínačov</li>
-                <li>Revízie a opravy elektrických rozvodov</li>
-                <li>Konzultácie pri návrhu nových elektroinštalácií</li>
-            </ul>
-        </section>
-
-        <!-- Certifikácie -->
-        <section>
-            <h2>Certifikácie a prax</h2>
-            <ul>
-                <li>Vyhláška 508/2009 Z. z. – §21, §22, §23</li>
-                <li>Skúsenosti s elektroinštaláciami v rodinných domoch aj priemyselných objektoch</li>
-                <li>Rýchle riešenie havarijných stavov – dostupnosť aj cez víkendy</li>
-            </ul>
-        </section>
-
-        <!-- Prečo ja -->
-        <section class="highlight">
-            <h2>Prečo práve ja?</h2>
-            <p>Viem, že elektroinštalácie môžu byť pre mnohých strašiakom. Preto kladiem dôraz na zrozumiteľnú komunikáciu, dodržiavanie bezpečnostných noriem a rýchle vybavenie objednávok. Zároveň poskytujem férové ceny a vždy sa snažím nájsť riešenie, ktoré vám ušetrí čas aj peniaze.</p>
-        </section>
-
-        <!-- Kontakt -->
-        <section>
-            <h2>Kontaktujte ma</h2>
-            <p>Máte záujem o moje služby alebo potrebujete poradiť? Neváhajte ma kontaktovať:</p>
-            <ul>
-                <li>Email: <strong>info@lt-tech.sk</strong></li>
-                <li>Telefón: <strong>+421 948 575 787</strong></li>
-            </ul>
-            <a href="mailto:info@lt-tech.sk" class="button">Poslať email</a>
-        </section>
-
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#domov">Domov</a></li>
+          <li class="nav-item"><a class="nav-link" href="#galeria">Galéria</a></li>
+          <li class="nav-item"><a class="nav-link" href="#kontakt">Kontakt</a></li>
+        </ul>
+      </div>
     </div>
+  </nav>
+
+  <!-- ************  DOMOV  ************ -->
+  <header id="domov" class="bg-primary text-white text-center">
+    <div class="container d-flex align-items-center flex-column" style="padding:120px 0">
+      <h1 class="mb-3">Tomáš Lysičan</h1>
+      <p class="lead">Spoľahlivý elektrikár pre váš domov i firmu</p>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- O mne -->
+    <section>
+      <h2 class="text-center mb-4">O mne</h2>
+      <p>
+        Ahoj, volám sa <strong>Tomáš Lysičan</strong> a som elektrikár s dlhoročnou
+        praxou v oblasti elektroinštalácií. Mám oficiálne certifikáty a osvedčenia
+        potrebné pre bezpečné a kvalitné elektro práce.
+      </p>
+    </section>
+
+    <!-- Služby -->
+    <section>
+      <h2 class="text-center mb-4">Služby</h2>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Kompletné elektroinštalácie v rodinných domoch a bytoch</li>
+        <li class="list-group-item">Montáž a výmena ističov, poistiek či rozvodných skríň</li>
+        <li class="list-group-item">Inštalácia a servis svietidiel, zásuviek a vypínačov</li>
+        <li class="list-group-item">Revízie a opravy elektrických rozvodov</li>
+        <li class="list-group-item">Konzultácie pri návrhu nových elektroinštalácií</li>
+      </ul>
+    </section>
+
+    <!-- Certifikácie -->
+    <section>
+      <h2 class="text-center mb-4">Certifikácie a prax</h2>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Vyhláška 508/2009 Z. z. – §21, §22, §23</li>
+        <li class="list-group-item">Skúsenosti s elektroinštaláciami v rodinných domoch aj priemyselných objektoch</li>
+        <li class="list-group-item">Rýchle riešenie havarijných stavov – dostupnosť aj cez víkendy</li>
+      </ul>
+    </section>
+
+    <!-- Prečo práve ja -->
+    <section class="bg-warning bg-opacity-25 border-start border-danger border-5 rounded">
+      <h2 class="mb-3">Prečo práve ja?</h2>
+      <p>
+        Viem, že elektroinštalácie môžu byť pre mnohých strašiakom. Preto kladiem dôraz na
+        zrozumiteľnú komunikáciu, dodržiavanie bezpečnostných noriem a rýchle vybavenie
+        objednávok. Zároveň poskytujem férové ceny a vždy sa snažím nájsť riešenie, ktoré vám
+        ušetrí čas aj peniaze.
+      </p>
+    </section>
+
+    <!-- ************  GALÉRIA  ************ -->
+    <section id="galeria">
+      <h2 class="text-center mb-4">Galéria</h2>
+
+      <div class="row g-3">
+        <!-- Ukážkové fotografie z Unsplash – nahraďte vlastnými -->
+        <div class="col-6 col-md-4 col-lg-3">
+          <a href="https://source.unsplash.com/random/800x600?electrician,1" data-lightbox="gallery">
+            <img src="https://source.unsplash.com/random/400x300?electrician,1" class="img-fluid" alt="Projekt 1">
+          </a>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3">
+          <a href="https://source.unsplash.com/random/800x600?electric,2" data-lightbox="gallery">
+            <img src="https://source.unsplash.com/random/400x300?electric,2" class="img-fluid" alt="Projekt 2">
+          </a>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3">
+          <a href="https://source.unsplash.com/random/800x600?wiring" data-lightbox="gallery">
+            <img src="https://source.unsplash.com/random/400x300?wiring" class="img-fluid" alt="Projekt 3">
+          </a>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3">
+          <a href="https://source.unsplash.com/random/800x600?circuit" data-lightbox="gallery">
+            <img src="https://source.unsplash.com/random/400x300?circuit" class="img-fluid" alt="Projekt 4">
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ************  KONTAKT  ************ -->
+    <section id="kontakt" class="text-center">
+      <h2 class="mb-4">Kontaktujte ma</h2>
+      <p class="mb-2">
+        Máte záujem o moje služby alebo potrebujete poradiť? Neváhajte ma kontaktovať:
+      </p>
+      <p class="fw-bold mb-1">info@tl-tech.sk</p>
+      <p class="fw-bold">+421 948 575 787</p>
+      <a href="mailto:info@tl-tech.sk" class="btn btn-primary">Poslať email</a>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white text-center py-3">
+    <small>&copy; <script>document.write(new Date().getFullYear())</script> TL‑Tech. Všetky práva vyhradené.</small>
+  </footer>
+
+  <!-- Bootstrap JS (+ Popper) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Lightbox2 JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
 
 </body>
 </html>
