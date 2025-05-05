@@ -1,24 +1,24 @@
 <!DOCTYPE html>
 <html lang="sk">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Tomáš Lysičan – Spoľahlivý Elektrikár</title>
-
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&display=swap" rel="stylesheet">
-
-  <!-- Bootstrap 5 -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-
-  <!-- Bootstrap Icons -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
-
-  <!-- Lightbox2 -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css" rel="stylesheet">
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tomáš Lysičan – Spoľahlivý Elektrikár</title>
+  
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&display=swap" rel="stylesheet">
+  
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  
+    <!-- Lightbox2 -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css" rel="stylesheet">
+  
   <style>
     body            { font-family: 'Roboto', Arial, sans-serif; }
 
@@ -28,9 +28,17 @@
     /* =====  SECTIONS  ===== */
     section         { padding: 60px 0; }
 
+    /* =====  MOBILE‑ONLY: reduce top/bottom padding ===== */
+    @media (max-width: 576px) {
+      section       { padding: 30px 0; }               /* polovica pôvodnej hodnoty */
+      .hero-content { padding: 80px 0 !important; }    /* menej vertikálneho priestoru v hlavičke */
+    }
+
     /* =====  GALÉRIA  ===== */
-    #galeria img            { border-radius: .5rem; transition: transform .2s; }
-    #galeria img:hover      { transform: scale(1.05); }
+    #galeria img    { border-radius: .5rem; transition: transform .2s; }
+    #galeria img:hover { transform: scale(1.05); }
+
+    /* =====  … (ostatné pravidlá zostávajú nezmenené) … */
 
     /* =====  PREČO PRÁVE JA?  ===== */
     .why-me                { padding-left: 3rem !important; }
@@ -62,207 +70,207 @@
 
 <body data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="70">
 
-  <!-- ************  MENU  ************ -->
-  <nav id="mainNav" class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-    <div class="container">
-      <a class="navbar-brand" href="#domov">TL‑Tech</a>
+    <!-- ************  MENU  ************ -->
+    <nav id="mainNav" class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+        <a class="navbar-brand" href="#domov">TL‑Tech</a>
 
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-              data-bs-target="#navbarResponsive" aria-controls="navbarResponsive"
-              aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarResponsive" aria-controls="navbarResponsive"
+                aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="#domov">Domov</a></li>
-          <li class="nav-item"><a class="nav-link" href="#galeria">Galéria</a></li>
-          <li class="nav-item"><a class="nav-link" href="#kontakt">Kontakt</a></li>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="#domov">Domov</a></li>
+            <li class="nav-item"><a class="nav-link" href="#galeria">Galéria</a></li>
+            <li class="nav-item"><a class="nav-link" href="#kontakt">Kontakt</a></li>
+            </ul>
+        </div>
+        </div>
+    </nav>
+
+    <!-- ************  DOMOV  ************ -->
+    <header id="domov" class="bg-primary text-white text-center">
+        <canvas id="lightningCanvas"></canvas>
+        <div class="container d-flex align-items-center flex-column hero-content" style="padding:120px 0">
+        <h1 class="mb-3">Tomáš Lysičan</h1>
+        <p class="lead">Spoľahlivý elektrikár pre váš domov i firmu</p>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <!-- O mne -->
+        <section>
+        <h2 class="text-center mb-4">O mne</h2>
+        <p>
+            Ahoj, volám sa <strong>Tomáš Lysičan</strong> a som elektrikár s dlhoročnou
+            praxou v oblasti elektroinštalácií. Mám oficiálne certifikáty a osvedčenia
+            potrebné pre bezpečné a kvalitné elektro práce.
+        </p>
+        </section>
+
+        <!-- Služby -->
+        <section>
+        <h2 class="text-center mb-4">Služby</h2>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item"><i class="bi bi-lightning-charge-fill me-2 text-warning"></i>Kompletné elektroinštalácie v rodinných domoch a bytoch</li>
+            <li class="list-group-item"><i class="bi bi-tools me-2 text-warning"></i>Montáž a výmena ističov, poistiek či rozvodných skríň</li>
+            <li class="list-group-item"><i class="bi bi-lightbulb-fill me-2 text-warning"></i>Inštalácia a servis svietidiel, zásuviek a vypínačov</li>
+            <li class="list-group-item"><i class="bi bi-shield-check me-2 text-warning"></i>Revízie a opravy elektrických rozvodov</li>
+            <li class="list-group-item"><i class="bi bi-chat-dots-fill me-2 text-warning"></i>Konzultácie pri návrhu nových elektroinštalácií</li>
         </ul>
-      </div>
-    </div>
-  </nav>
+        </section>
 
-  <!-- ************  DOMOV  ************ -->
-  <header id="domov" class="bg-primary text-white text-center">
-    <canvas id="lightningCanvas"></canvas>
-    <div class="container d-flex align-items-center flex-column hero-content" style="padding:120px 0">
-      <h1 class="mb-3">Tomáš Lysičan</h1>
-      <p class="lead">Spoľahlivý elektrikár pre váš domov i firmu</p>
-    </div>
-  </header>
+        <!-- Certifikácie -->
+        <section>
+        <h2 class="text-center mb-4">Certifikácie a prax</h2>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">Vyhláška 508/2009 Z. z. – §21, §22, §23</li>
+            <li class="list-group-item">Skúsenosti s elektroinštaláciami v rodinných domoch aj priemyselných objektoch</li>
+            <li class="list-group-item">Rýchle riešenie havarijných stavov – dostupnosť aj cez víkendy</li>
+        </ul>
+        </section>
 
-  <main class="container">
+        <!-- Prečo práve ja -->
+        <section class="bg-warning bg-opacity-25 border-start border-danger border-5 rounded why-me">
+        <h2 class="mb-3">Prečo práve ja?</h2>
+        <p>
+            Viem, že elektroinštalácie môžu byť pre mnohých strašiakom. Preto kladiem dôraz na
+            zrozumiteľnú komunikáciu, dodržiavanie bezpečnostných noriem a rýchle vybavenie
+            objednávok. Zároveň poskytujem férové ceny a vždy sa snažím nájsť riešenie, ktoré vám
+            ušetrí čas aj peniaze.
+        </p>
+        </section>
 
-    <!-- O mne -->
-    <section>
-      <h2 class="text-center mb-4">O mne</h2>
-      <p>
-        Ahoj, volám sa <strong>Tomáš Lysičan</strong> a som elektrikár s dlhoročnou
-        praxou v oblasti elektroinštalácií. Mám oficiálne certifikáty a osvedčenia
-        potrebné pre bezpečné a kvalitné elektro práce.
-      </p>
-    </section>
-
-    <!-- Služby -->
-    <section>
-      <h2 class="text-center mb-4">Služby</h2>
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item"><i class="bi bi-lightning-charge-fill me-2 text-warning"></i>Kompletné elektroinštalácie v rodinných domoch a bytoch</li>
-        <li class="list-group-item"><i class="bi bi-tools me-2 text-warning"></i>Montáž a výmena ističov, poistiek či rozvodných skríň</li>
-        <li class="list-group-item"><i class="bi bi-lightbulb-fill me-2 text-warning"></i>Inštalácia a servis svietidiel, zásuviek a vypínačov</li>
-        <li class="list-group-item"><i class="bi bi-shield-check me-2 text-warning"></i>Revízie a opravy elektrických rozvodov</li>
-        <li class="list-group-item"><i class="bi bi-chat-dots-fill me-2 text-warning"></i>Konzultácie pri návrhu nových elektroinštalácií</li>
-      </ul>
-    </section>
-
-    <!-- Certifikácie -->
-    <section>
-      <h2 class="text-center mb-4">Certifikácie a prax</h2>
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item">Vyhláška 508/2009 Z. z. – §21, §22, §23</li>
-        <li class="list-group-item">Skúsenosti s elektroinštaláciami v rodinných domoch aj priemyselných objektoch</li>
-        <li class="list-group-item">Rýchle riešenie havarijných stavov – dostupnosť aj cez víkendy</li>
-      </ul>
-    </section>
-
-    <!-- Prečo práve ja -->
-    <section class="bg-warning bg-opacity-25 border-start border-danger border-5 rounded why-me">
-      <h2 class="mb-3">Prečo práve ja?</h2>
-      <p>
-        Viem, že elektroinštalácie môžu byť pre mnohých strašiakom. Preto kladiem dôraz na
-        zrozumiteľnú komunikáciu, dodržiavanie bezpečnostných noriem a rýchle vybavenie
-        objednávok. Zároveň poskytujem férové ceny a vždy sa snažím nájsť riešenie, ktoré vám
-        ušetrí čas aj peniaze.
-      </p>
-    </section>
-
-    <!-- ŠTATISTIKY -->
-    <section class="bg-light text-center">
-      <div class="row g-4">
-        <div class="col-12 col-md-4">
-          <i class="bi bi-calendar2-week display-5 text-primary"></i>
-          <h3 class="mt-2">15+</h3>
-          <p>Rokov praxe</p>
+        <!-- ŠTATISTIKY -->
+        <section class="bg-light text-center">
+        <div class="row g-4">
+            <div class="col-12 col-md-4">
+            <i class="bi bi-calendar2-week display-5 text-primary"></i>
+            <h3 class="mt-2">15+</h3>
+            <p>Rokov praxe</p>
+            </div>
+            <div class="col-12 col-md-4">
+            <i class="bi bi-people-fill display-5 text-primary"></i>
+            <h3 class="mt-2">350+</h3>
+            <p>Spokojných zákazníkov</p>
+            </div>
+            <div class="col-12 col-md-4">
+            <i class="bi bi-clock-history display-5 text-primary"></i>
+            <h3 class="mt-2">24/7</h3>
+            <p>Havarijná služba</p>
+            </div>
         </div>
-        <div class="col-12 col-md-4">
-          <i class="bi bi-people-fill display-5 text-primary"></i>
-          <h3 class="mt-2">350+</h3>
-          <p>Spokojných zákazníkov</p>
+        </section>
+
+        <!-- GALÉRIA -->
+        <section id="galeria">
+        <h2 class="text-center mb-4">Galéria</h2>
+
+        <div class="row g-3">
+            <div class="col-6 col-md-4 col-lg-3">
+            <a href="https://source.unsplash.com/random/800x600?electrician,1" data-lightbox="gallery">
+                <img src="https://source.unsplash.com/random/400x300?electrician,1" class="img-fluid" alt="Projekt 1">
+            </a>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3">
+            <a href="https://source.unsplash.com/random/800x600?electric,2" data-lightbox="gallery">
+                <img src="https://source.unsplash.com/random/400x300?electric,2" class="img-fluid" alt="Projekt 2">
+            </a>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3">
+            <a href="https://source.unsplash.com/random/800x600?wiring" data-lightbox="gallery">
+                <img src="https://source.unsplash.com/random/400x300?wiring" class="img-fluid" alt="Projekt 3">
+            </a>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3">
+            <a href="https://source.unsplash.com/random/800x600?circuit" data-lightbox="gallery">
+                <img src="https://source.unsplash.com/random/400x300?circuit" class="img-fluid" alt="Projekt 4">
+            </a>
+            </div>
         </div>
-        <div class="col-12 col-md-4">
-          <i class="bi bi-clock-history display-5 text-primary"></i>
-          <h3 class="mt-2">24/7</h3>
-          <p>Havarijná služba</p>
-        </div>
-      </div>
-    </section>
+        </section>
 
-    <!-- GALÉRIA -->
-    <section id="galeria">
-      <h2 class="text-center mb-4">Galéria</h2>
+        <!-- KONTAKT -->
+        <section id="kontakt" class="text-center">
+        <h2 class="mb-4">Kontaktujte ma</h2>
+        <p class="mb-2">
+            Máte záujem o moje služby alebo potrebujete poradiť? Neváhajte ma kontaktovať:
+        </p>
+        <p class="fw-bold mb-1">info@tl-tech.sk</p>
+        <p class="fw-bold">+421 948 575 787</p>
+        <a href="mailto:info@tl-tech.sk" class="btn btn-primary">Poslať email</a>
+        </section>
+    </main>
 
-      <div class="row g-3">
-        <div class="col-6 col-md-4 col-lg-3">
-          <a href="https://source.unsplash.com/random/800x600?electrician,1" data-lightbox="gallery">
-            <img src="https://source.unsplash.com/random/400x300?electrician,1" class="img-fluid" alt="Projekt 1">
-          </a>
-        </div>
-        <div class="col-6 col-md-4 col-lg-3">
-          <a href="https://source.unsplash.com/random/800x600?electric,2" data-lightbox="gallery">
-            <img src="https://source.unsplash.com/random/400x300?electric,2" class="img-fluid" alt="Projekt 2">
-          </a>
-        </div>
-        <div class="col-6 col-md-4 col-lg-3">
-          <a href="https://source.unsplash.com/random/800x600?wiring" data-lightbox="gallery">
-            <img src="https://source.unsplash.com/random/400x300?wiring" class="img-fluid" alt="Projekt 3">
-          </a>
-        </div>
-        <div class="col-6 col-md-4 col-lg-3">
-          <a href="https://source.unsplash.com/random/800x600?circuit" data-lightbox="gallery">
-            <img src="https://source.unsplash.com/random/400x300?circuit" class="img-fluid" alt="Projekt 4">
-          </a>
-        </div>
-      </div>
-    </section>
+    <footer class="bg-dark text-white text-center py-3">
+        <small>&copy; <script>document.write(new Date().getFullYear())</script> TL‑Tech. Všetky práva vyhradené.</small>
+    </footer>
 
-    <!-- KONTAKT -->
-    <section id="kontakt" class="text-center">
-      <h2 class="mb-4">Kontaktujte ma</h2>
-      <p class="mb-2">
-        Máte záujem o moje služby alebo potrebujete poradiť? Neváhajte ma kontaktovať:
-      </p>
-      <p class="fw-bold mb-1">info@tl-tech.sk</p>
-      <p class="fw-bold">+421 948 575 787</p>
-      <a href="mailto:info@tl-tech.sk" class="btn btn-primary">Poslať email</a>
-    </section>
-  </main>
+    <!-- =====  SCRIPTS  ===== -->
+    <!-- jQuery (required by Lightbox2) -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 
-  <footer class="bg-dark text-white text-center py-3">
-    <small>&copy; <script>document.write(new Date().getFullYear())</script> TL‑Tech. Všetky práva vyhradené.</small>
-  </footer>
+    <!-- Bootstrap JS (+ Popper) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
-  <!-- =====  SCRIPTS  ===== -->
-  <!-- jQuery (required by Lightbox2) -->
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <!-- Lightbox2 JS (po jQuery) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
 
-  <!-- Bootstrap JS (+ Popper) -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Subtle lightning animation (nezmenené) -->
+    <script>
+        (function () {
+        const canvas = document.getElementById('lightningCanvas');
+        const ctx    = canvas.getContext('2d');
+        let w, h;
 
-  <!-- Lightbox2 JS (po jQuery) -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
-
-  <!-- Subtle lightning animation (nezmenené) -->
-  <script>
-    (function () {
-      const canvas = document.getElementById('lightningCanvas');
-      const ctx    = canvas.getContext('2d');
-      let w, h;
-
-      function sizeCanvas () {
-        w = canvas.width  = canvas.offsetWidth;
-        h = canvas.height = canvas.offsetHeight;
-        ctx.strokeStyle   = 'rgba(255,255,255,0.6)';
-        ctx.lineWidth     = 2;
-        ctx.shadowBlur    = 8;
-        ctx.shadowColor   = 'rgba(255,255,255,0.8)';
-      }
-      sizeCanvas();
-      window.addEventListener('resize', sizeCanvas);
-
-      function rand (min, max) { return Math.random() * (max - min) + min; }
-
-      function drawBolt () {
-        const startX = rand(w * 0.2, w * 0.8);
-        let   x      = startX;
-        let   y      = 0;
-        ctx.beginPath();
-        ctx.moveTo(x, y);
-
-        while (y < h) {
-          x += rand(-20, 20);
-          y += rand(20, 40);
-          ctx.lineTo(x, y);
+        function sizeCanvas () {
+            w = canvas.width  = canvas.offsetWidth;
+            h = canvas.height = canvas.offsetHeight;
+            ctx.strokeStyle   = 'rgba(255,255,255,0.6)';
+            ctx.lineWidth     = 2;
+            ctx.shadowBlur    = 8;
+            ctx.shadowColor   = 'rgba(255,255,255,0.8)';
         }
-        ctx.stroke();
-      }
+        sizeCanvas();
+        window.addEventListener('resize', sizeCanvas);
 
-      function fadeCanvas () {
-        ctx.fillStyle = 'rgba(0,0,0,0.03)';
-        ctx.fillRect(0, 0, w, h);
-      }
+        function rand (min, max) { return Math.random() * (max - min) + min; }
 
-      let lastTime = 0;
-      function animate (time) {
-        if (time - lastTime > 1500 + rand(-600, 600)) {
-          drawBolt();
-          lastTime = time;
+        function drawBolt () {
+            const startX = rand(w * 0.2, w * 0.8);
+            let   x      = startX;
+            let   y      = 0;
+            ctx.beginPath();
+            ctx.moveTo(x, y);
+
+            while (y < h) {
+            x += rand(-20, 20);
+            y += rand(20, 40);
+            ctx.lineTo(x, y);
+            }
+            ctx.stroke();
         }
-        fadeCanvas();
-        requestAnimationFrame(animate);
-      }
-      animate(0);
-    })();
-  </script>
+
+        function fadeCanvas () {
+            ctx.fillStyle = 'rgba(0,0,0,0.03)';
+            ctx.fillRect(0, 0, w, h);
+        }
+
+        let lastTime = 0;
+        function animate (time) {
+            if (time - lastTime > 1500 + rand(-600, 600)) {
+            drawBolt();
+            lastTime = time;
+            }
+            fadeCanvas();
+            requestAnimationFrame(animate);
+        }
+        animate(0);
+        })();
+    </script>
 </body>
 </html>
