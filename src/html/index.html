@@ -8,7 +8,7 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&display=swap" rel="stylesheet"><!-- nový štýlový font pre titulok -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&display=swap" rel="stylesheet">
 
   <!-- Bootstrap 5 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -16,7 +16,7 @@
   <!-- Bootstrap Icons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
 
-  <!-- Lightbox2 (popup galéria) -->
+  <!-- Lightbox2 -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css" rel="stylesheet">
 
   <style>
@@ -33,17 +33,17 @@
     #galeria img:hover      { transform: scale(1.05); }
 
     /* =====  PREČO PRÁVE JA?  ===== */
-    .why-me                { padding-left: 3rem !important; } /* zvýšené odsadenie zľava */
+    .why-me                { padding-left: 3rem !important; }
 
     /* =====  HEADER TEXT  ===== */
     header h1 {
-      font-family: 'Poppins', 'Roboto', Arial, sans-serif; /* profesionálnejší font */
-      font-weight: 900;          /* extra bold */
-      color: #ffffff;            /* čistejšia biela */
-      text-shadow: 0 0 8px rgba(0,0,0,.6); /* lepšia čitateľnosť na modrom pozadí + blesk */
+      font-family: 'Poppins', 'Roboto', Arial, sans-serif;
+      font-weight: 900;
+      color: #ffffff;
+      text-shadow: 0 0 8px rgba(0,0,0,.6);
     }
     header .lead {
-      color: #f8f9fa;            /* svetlejšia */
+      color: #f8f9fa;
       font-weight: 600;
       text-shadow: 0 0 6px rgba(0,0,0,.5);
     }
@@ -54,13 +54,15 @@
       position: absolute; inset: 0;
       width: 100%; height: 100%;
       pointer-events: none;
+      z-index: 0; /* vždy v pozadí */
     }
+    .hero-content          { position: relative; z-index: 1; } /* text vpredu */
   </style>
 </head>
 
 <body data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="70">
 
-  <!-- ************  MENU  (Domov | Galéria | Kontakt)  ************ -->
+  <!-- ************  MENU  ************ -->
   <nav id="mainNav" class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
       <a class="navbar-brand" href="#domov">TL‑Tech</a>
@@ -84,7 +86,7 @@
   <!-- ************  DOMOV  ************ -->
   <header id="domov" class="bg-primary text-white text-center">
     <canvas id="lightningCanvas"></canvas>
-    <div class="container d-flex align-items-center flex-column" style="padding:120px 0">
+    <div class="container d-flex align-items-center flex-column hero-content" style="padding:120px 0">
       <h1 class="mb-3">Tomáš Lysičan</h1>
       <p class="lead">Spoľahlivý elektrikár pre váš domov i firmu</p>
     </div>
@@ -194,18 +196,20 @@
       <p class="fw-bold">+421 948 575 787</p>
       <a href="mailto:info@tl-tech.sk" class="btn btn-primary">Poslať email</a>
     </section>
-
   </main>
 
-  <!-- Footer -->
   <footer class="bg-dark text-white text-center py-3">
     <small>&copy; <script>document.write(new Date().getFullYear())</script> TL‑Tech. Všetky práva vyhradené.</small>
   </footer>
 
+  <!-- =====  SCRIPTS  ===== -->
+  <!-- jQuery (required by Lightbox2) -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
   <!-- Bootstrap JS (+ Popper) -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
-  <!-- Lightbox2 JS -->
+  <!-- Lightbox2 JS (po jQuery) -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
 
   <!-- Subtle lightning animation (nezmenené) -->
@@ -260,6 +264,5 @@
       animate(0);
     })();
   </script>
-
 </body>
 </html>
